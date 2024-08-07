@@ -1,0 +1,162 @@
+body{
+  margin: 0;
+   height: 100vh;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   background: linear-gradient(to bottom, rgb(204, 2, 2),rgb(224, 60, 87),rgb(255, 208, 0));
+
+}
+
+.gift-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 20%;
+}
+.gift-container.active{
+    animation: vibration 1s ease forwards;
+}
+@keyframes vibration{
+    0% {
+        transform: scale(1,1);
+    }
+    25% {
+        transform: scale(.95,1.05);
+    }
+    50% {
+        transform: scale(1.1,.9);
+    }
+    70% {
+        transform: scale(.9,1.1);
+    }
+    100% {
+        transform: scale(1,1);
+    }
+
+}
+
+.gift-container .gift-box{
+    position: aboslute;
+    height: 200px;
+    width: 300px;
+    background: rgb(17, 122, 234);
+    animation: Bounce 4s ease infinite forwards;
+
+}
+@keyframes Bounce{
+    0% { 
+        transform: translateY(-24px); 
+    }
+    50% { 
+        transform: translateY( 0px); 
+    }
+    100% { 
+        transform: translateY(-24px); 
+    }
+}
+
+.gift-box.active{
+    animation: none;
+}
+
+.gift-box::before{
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 200px;
+    background: rgb(6, 184, 215);
+    left: 124px;
+}
+
+.gift-box::after{
+    content: '';
+    position: absolute;
+    box-Shadow: inset 0 10px rgb(6, 90, 150);
+    width: 300px;
+    height: 200px;
+}
+
+/*************** The box lid that will be clicked on *************/
+
+.click{
+    position: absolute;
+    background: rgb(17, 122, 234);
+    width: 340px;
+    height: 90px;
+    top: -90px;
+    left: -20px;
+    cursor: pointer;
+    z-index: 1;
+    transition: .5s ease;
+}
+
+.click.active{
+    transition-delay: 1s;
+    transform: translateY(-250px);
+}
+
+.click::before{
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 90px;
+    background: rgb(6, 184, 215);
+    left: 144px;
+    z-index: 2;
+
+}
+
+.click::after{
+    content: '';
+    position: absolute;
+    width: 5px;
+    height: 0;
+    border-bottom: 60px solid rgb(6, 184, 215);
+    border-top: 60px solid rgb(6, 184, 215);
+    border-left: 0px solid transparent;
+    border-right: 60px solid transparent;
+    transform: rotate(-90deg);
+    top: -93px;
+    left: 136px;   
+    z-index: 3; 
+    
+}
+
+.text{
+    position: absolute;
+    top: 10px;
+    width: 200px;
+    background: rgb(106, 237, 247);
+    padding: 20px;
+    text-align: center;
+    font-size: 15px;
+    color:black;
+    border-radius: 20px;
+    z-index: - 1;
+    scale: 0;
+   /* z-index:  ;
+    transform: translateY(-250px); */
+
+   transition: .4s ease;
+   transition-delay: 1.2s;
+
+
+}
+
+.text.active{
+
+    scale: 1;
+    transform: translateY(-250px);
+}
+
+.text.active2{
+    top: 0;
+    transition-delay: .2s;
+
+}
+a{
+    text-decoration: none;
+    color: rgb(247, 233, 106);
+  }
